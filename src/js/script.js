@@ -76,3 +76,20 @@ document.querySelector('#carbon-form').addEventListener('submit', async (e) => {
         console.error('Erro detalhado:', error);
     }
 });
+
+async function fetchNews() {
+    const apiKey = apiNewsapi;
+    const url = `https://newsapi.org/v2/everything?q=energia+renovável&language=pt&apiKey=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Falha ao buscar notícias');
+        }
+        const data = await response.json();
+        return data.articles.slice(0, 6);
+    } catch (error) {
+        console.error('Erro:', error);
+        throw error;
+    }
+}
