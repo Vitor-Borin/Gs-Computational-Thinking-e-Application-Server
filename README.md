@@ -30,7 +30,7 @@ Este é um projeto que combina cálculos ambientais e exibição de notícias pa
 
 ---
 
-##🎯 Como Usar
+## 🎯 Como Usar
 
 ### 🌱 Cálculo de Pegada de Carbono:
 - Insira a distância percorrida em quilômetros.
