@@ -82,8 +82,7 @@ main {
     color: #555;
 }
 
-#calculator,
-#newsletter {
+#calculator, #newsletter {
     margin-bottom: 2rem;
     background: #f8f9fa;
     border-radius: 8px;
@@ -97,9 +96,7 @@ form {
     max-width: 100%;
 }
 
-input,
-select,
-button {
+input, select, button {
     margin-bottom: 1rem;
     padding: 5px;
 }
@@ -120,8 +117,7 @@ button:hover {
     background-color: #45a049;
 }
 
-.result-card,
-.error-card {
+.result-card, .error-card {
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;
@@ -186,4 +182,12 @@ button:hover {
 
 .news-item a:hover {
     text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    background-color: #f2f2f2;
+    padding: 2rem;
+    font-size: 1.4rem;
 }
