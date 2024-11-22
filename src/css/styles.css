@@ -146,3 +146,44 @@ button:hover {
     background-color: #fef2f2;
     border: 1px solid #fca5a5;
 }
+
+.news-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.news-item {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.news-item:hover {
+    transform: scale(1.05);
+}
+
+.news-item h3 {
+    color: #2c5282;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.news-item p {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.news-item a {
+    color: #007BFF;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
