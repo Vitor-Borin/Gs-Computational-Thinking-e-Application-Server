@@ -93,3 +93,54 @@ async function fetchNews() {
         throw error;
     }
 }
+
+function displayNews(articles) {
+    const newsContainer = document.querySelector('#news-container');
+    newsContainer.innerHTML = '';
+
+    const chunkedArticles = [];
+    for (let i = 0; i < articles.length; i += 3) {
+        chunkedArticles.push(articles.slice(i, i + 3));
+    }
+
+    chunkedArticles.forEach(group => {
+        const row = document.createElement('div');
+        row.classList.add('news-row');
+        row.style.display = 'grid';
+        row.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        row.style.gap = '20px';
+        row.style.marginBottom = '20px';
+
+        group.forEach(article => {
+            const newsItem = document.createElement('div');
+            newsItem.classList.add('news-item');
+            newsItem.innerHTML = `
+                <h3>${article.title}</h3>
+                <p>${article.description}</p>
+                <a href="${article.url}" target="_blank">Leia mais</a>
+            `;
+            row.appendChild(newsItem);
+        });
+
+        newsContainer.appendChild(row);
+    });
+}
+
+document.querySelector('#newsletter-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.querySelector('#email').value;
+    const resultDiv = document.querySelector('#newsletter-result');
+
+    setTimeout(() => {
+        resultDiv.innerHTML = `Obrigado por se inscrever! Um e-mail de confirmação foi enviado para ${email}.`;
+    }, 1000);
+});
+
+window.addEventListener('load', async () => {
+    try {
+        const articles = await fetchNews();
+        displayNews(articles);
+    } catch (error) {
+        document.querySelector('#news-container').innerHTML = 'Não foi possível carregar as notícias. Por favor, tente novamente mais tarde.';
+    }
+});
